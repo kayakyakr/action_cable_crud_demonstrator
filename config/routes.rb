@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  devise_for :users
+  match "/toptal_cable", to: ActionCable.server, via: [:get, :post]
 
-  root "home#index"
+  get '(*jspath)' => "home#index"
+  root to: "home#index"
 end
