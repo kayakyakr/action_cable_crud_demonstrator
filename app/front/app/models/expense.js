@@ -7,7 +7,8 @@ export default Em.Object.extend({
   save: function(){
     let valid = this.valid();
     if(this.get('id') && valid){
-      expense_channel.update(this.getProperties('id', 'account_id', 'description', 'comment', 'occurred_at', 'amount'));
+      this.incrementProperty('version');
+      expense_channel.update(this.getProperties('id', 'account_id', 'description', 'comment', 'occurred_at', 'amount', 'version'));
     }
     return valid;
   }.observes('account_id', 'description', 'comment', 'occurred_at', 'amount'),

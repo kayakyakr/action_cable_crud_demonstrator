@@ -2,6 +2,7 @@
   <nav class="user-list col-xs-4 col-sm-3 col-md-2">
     {{#link-to 'expenses'}}<i class="fa fa-home"></i>{{/link-to}}
     {{#link-to 'report'}}<i class="fa fa-file-o"></i>{{/link-to}}
+    <a href="/users/sign_out"><i class="fa fa-sign-out"></i></a>
     <ul class="list-unstyled">
       {{#each model.users as |user|}}
         {{nav-user model=user allAccounts=model.accounts}}

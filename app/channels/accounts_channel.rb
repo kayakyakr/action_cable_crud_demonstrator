@@ -34,6 +34,6 @@ class AccountsChannel < ApplicationCable::Channel
 
   protected
   def account_params(params)
-    ActionController::Parameters.new(params).permit(:name, :user_id)
+    ActionController::Parameters.new(params).permit(:name, :user_id, :version)
   end
 end

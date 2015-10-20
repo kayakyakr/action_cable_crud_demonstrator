@@ -3,6 +3,7 @@ class UserChannel < ApplicationCable::Channel
   end
 
   def list
+    stop_all_streams
     users = current_user.admin? ? User.all : [current_user]
 
     users.each { |u| stream_for u }
@@ -20,6 +21,6 @@ class UserChannel < ApplicationCable::Channel
   protected
 
   def user_params(params)
-    ActionController::Parameters.new(params).permit(:name, :email)
+    ActionController::Parameters.new(params).permit(:name, :email, :version)
   end
 end

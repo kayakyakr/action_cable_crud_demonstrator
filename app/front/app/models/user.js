@@ -5,6 +5,7 @@ export default Em.Object.extend({
   filtered: false,
 
   save: function(){
-    user_channel.update(this.getProperties('id', 'name', 'email'));
+    this.incrementProperty('version');
+    user_channel.update(this.getProperties('id', 'name', 'email', 'version'));
   }.observes('name', 'email')
 });

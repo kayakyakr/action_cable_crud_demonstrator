@@ -2,7 +2,7 @@
   {{#if model.name}}{{model.name}}{{else}}Set User Name{{/if}}
   <div class="btn btn-xs {{if model.filter 'btn-primary' 'btn-default'}}" {{action 'filter' model}}><i class="fa fa-filter"></i></div>
   {{#link-to 'user' model class="btn btn-default btn-xs"}}<i class="fa fa-wrench"></i>{{/link-to}}
-  <ul class="list-unstyled">
+  <ul>
     {{#each accounts as |account|}}
       <li class="account">{{account.name}}
       <div class="btn btn-xs {{if account.filter 'btn-primary' 'btn-default'}}" {{action 'filter' account}}><i class="fa fa-filter"></i></div>

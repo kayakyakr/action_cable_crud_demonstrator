@@ -34,6 +34,6 @@ class ExpensesChannel < ApplicationCable::Channel
 
   protected
   def expense_params(params)
-    ActionController::Parameters.new(params).permit(:description, :occurred_at, :amount, :comment, :account_id)
+    ActionController::Parameters.new(params).permit(:description, :occurred_at, :amount, :comment, :account_id, :version)
   end
 end

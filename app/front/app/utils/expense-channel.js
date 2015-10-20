@@ -4,7 +4,7 @@ import Expense from 'front/models/expense';
 var resolve, promise = new Promise((r) => { resolve = r; });
 var channel = cable.subscriptions.create('ExpensesChannel', {
   list: function(arr){
-    this.arr = arr;
+    if(arr){ this.arr = arr; }
     this.perform('list');
   },
 
@@ -37,7 +37,7 @@ var channel = cable.subscriptions.create('ExpensesChannel', {
       if(expense){
         if(e['destroyed?']){
           this.arr.removeObject(expense);
-        } else {
+        } else if(expense.get('version') < e.version) {
           expense.setProperties(e);
         }
       } else if(!e['destroyed?']) {

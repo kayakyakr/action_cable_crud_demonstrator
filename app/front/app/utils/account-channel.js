@@ -4,7 +4,7 @@ import Account from 'front/models/account';
 var resolve, promise = new Promise((r) => { resolve = r; });
 var channel = cable.subscriptions.create('AccountsChannel', {
   list: function(arr){
-    this.arr = arr;
+    if(arr){ this.arr = arr; }
     this.perform('list');
   },
 
@@ -37,7 +37,7 @@ var channel = cable.subscriptions.create('AccountsChannel', {
       if(account){
         if(a['destroyed?']){
           this.arr.removeObject(account);
-        } else {
+        } else if(account.get('version') < a.version) {
           account.setProperties(a);
         }
       } else if(!a['destroyed?']) {
