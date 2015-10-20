@@ -13,5 +13,4 @@ test:
   database: toptal_test
 
 production:
-  <<: *default
-  database: toptal_production
+  url: ENV['DATABASE_URL']

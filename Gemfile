@@ -25,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'momentjs-rails'
 gem "font-awesome-rails"
 
+gem "rails_12factor", group: :production
 
 group :development, :test do
   gem 'rspec-rails'

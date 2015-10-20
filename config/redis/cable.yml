@@ -1,4 +1,5 @@
-production: &production
+production:
+  :url: ENV["REDIS_URL"]
 development: &development
   :url: redis://localhost:6379
   :host: localhost
