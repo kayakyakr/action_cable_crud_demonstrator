@@ -4,8 +4,10 @@ class CreateExpenses < ActiveRecord::Migration
       t.references :account, index: true, foreign_key: true
       t.datetime :occurred_at
       t.string :description
-      t.float :amount
+      t.decimal :amount
       t.text :comment
+
+      t.integer :version, default: 0
 
       t.timestamps null: false
     end

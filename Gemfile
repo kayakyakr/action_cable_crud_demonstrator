@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # server
 gem 'rails', '4.2.4'
 gem 'pg'
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.rc'
 gem 'redis'
 gem 'actioncable', github: 'rails/actioncable'
 gem 'figaro'
@@ -17,13 +17,13 @@ gem 'devise'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'handlebars_assets'
+gem "ember-cli-rails"
 
 #assets
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-gem 'backbone-rails'
 gem 'momentjs-rails'
+gem "font-awesome-rails"
 
 
 group :development, :test do

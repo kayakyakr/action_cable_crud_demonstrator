@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Account</th>
+      <th>Week</th>
+      <th>Total</th>
+      <th>Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each reports as |report|}}
+      <tr>
+        <td>{{report.user.name}}</td>
+        <td>{{if report.account report.account.name 'all'}}</td>
+        <td>{{report.week}}</td>
+        <td>{{report.total}}</td>
+        <td>{{report.average}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

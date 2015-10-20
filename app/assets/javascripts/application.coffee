@@ -1,4 +1,5 @@
 #= require jquery
-#= require underscore
-#= require backbone
-#= require_self
+#= require bootstrap-sprockets
+#= require cable
+#= require moment
+#= require_tree .

@@ -28,5 +28,13 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
+    can :manage, User, {id: user.id}
+    can :manage, Account, {user_id: user.id}
+    can :manage, Expense, {account: {user_id: user.id}}
+
+    if user.admin?
+      can :manage, :all
+    end
   end
 end

@@ -20,7 +20,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.inet     :last_sign_in_ip
 
       t.string :name
-      t.string :role, default: 'user'
+      t.integer :role, default: 0
+
+      t.integer :version, default: 0
 
 
       t.timestamps null: false

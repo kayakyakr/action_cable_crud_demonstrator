@@ -1,0 +1,12 @@
+<td><input type="datetime-local" value={{date}} onblur={{action 'updateDate'}} class="form-control"></td>
+<td>{{input value=expense.description class="form-control"}}</td>
+<td>{{input type="number" value=expense.amount class="form-control"}}</td>
+<td>{{input value=expense.comment class="form-control"}}</td>
+<td>
+  {{#x-select value=expense.account_id class="form-control" }}
+    {{#each accounts as |account|}}
+      {{#x-option value=account.id}}{{account.name}}{{/x-option}}
+    {{/each}}
+  {{/x-select}}
+</td>
+<td><span class="btn btn-xs btn-danger" {{action 'destroy'}}><i class="fa fa-times"></i></span></td>

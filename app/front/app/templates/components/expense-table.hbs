@@ -1,0 +1,42 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Occurred On</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Comment</th>
+      <th>Account</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each expenses as |expense|}}
+      {{expense-row expense=expense accounts=accounts}}
+    {{/each}}
+    {{#if addNew}}
+      <tr>
+        <td><input type="datetime-local" value={{date}} onblur={{action 'updateDate'}} class="form-control"></td>
+        <td>{{input value=addNew.description class="form-control"}}</td>
+        <td>{{input type="number" value=addNew.amount class="form-control"}}</td>
+        <td>{{input value=addNew.comment class="form-control"}}</td>
+        <td>
+          {{#x-select value=addNew.account_id class="form-control" }}
+            {{#each accounts as |account|}}
+              {{#x-option value=account.id}}{{account.name}}{{/x-option}}
+            {{/each}}
+          {{/x-select}}
+        </td>
+        <td>
+          <div class="btn btn-success btn-xs" {{action 'saveNew'}}><i class="fa fa-check"></i></div>
+          <div class="btn btn-warning btn-xs" {{action 'cancelNew'}}><i class="fa fa-times"></i></div>
+        </td>
+      </tr>
+    {{else}}
+      <tr>
+        <td colspan="6">
+          <div class="btn btn-primary pull-right" {{action 'addNew'}}>Add Expense</div>
+        </td>
+      </tr>
+    {{/if}}
+  </tbody>
+</table>
