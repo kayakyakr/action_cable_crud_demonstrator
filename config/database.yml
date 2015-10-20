@@ -13,4 +13,5 @@ test:
   database: toptal_test
 
 production:
-  url: ENV['DATABASE_URL']
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV["DB_POOL"] || Integer(ENV['CABLE_POOL_SIZE'] || 10) + Integer(ENV['MAX_THREADS'] || 5) %>
