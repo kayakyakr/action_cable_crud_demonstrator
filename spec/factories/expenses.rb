@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :expense do
-    account nil
-occurred_at "2015-10-18 17:29:35"
-description "MyString"
-amount 1.5
-comment "MyText"
+    account
+    occurred_at { Time.now }
+    description "Describing An Expense"
+    amount 1.5
+    comment "Commenting on an expense"
   end
 
 end

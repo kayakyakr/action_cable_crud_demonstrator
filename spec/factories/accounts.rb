@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :account do
-    user nil
-name "MyString"
+    user
+    sequence(:name) {|n| "Account #{n}" }
   end
-
 end
