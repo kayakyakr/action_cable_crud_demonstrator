@@ -6,6 +6,9 @@ module CableMacros
 
     before(:each) do
       connection.instance_variable_set(:@request, request)
+      websocket = double('websocket')
+      allow(websocket).to receive(:transmit)
+      connection.instance_variable_set(:@websocket, websocket)
       env['warden'] = begin
         manager = Warden::Manager.new(nil) do |config|
           config.merge! Devise.warden_config
@@ -16,10 +19,15 @@ module CableMacros
   end
 
   def login_user
-    let(:user) { create :user }
     before(:each) do
       env['warden'].instance_variable_get(:@users).delete(:user)
       env['warden'].session_serializer.store(user, :user)
     end
+  end
+
+  def connect_to_cable
+    setup_connection
+    login_user
+    before(:each) { connection.connect }
   end
 end

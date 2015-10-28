@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationCable::Connection, type: :cable do
+  let(:user){ create :user }
   setup_connection
 
   describe "#connect" do
