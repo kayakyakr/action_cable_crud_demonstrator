@@ -6,11 +6,11 @@ default: &default
 
 development:
   <<: *default
-  database: toptal_development
+  database: action_cable_demonstrator_development
 
 test:
   <<: *default
-  database: toptal_test
+  database: action_cable_demonstrator_test
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
